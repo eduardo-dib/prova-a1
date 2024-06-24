@@ -95,7 +95,7 @@ app.MapGet("/tarefas/naoconcluidas", ([FromServices] AppDataContext ctx) =>
     
 });
 
-//GET: http://localhost:5273/tarefas/concluidas
+//GET: http://localhost:5000/tarefas/concluidas
 app.MapGet("/tarefas/concluidas", ([FromServices] AppDataContext ctx) =>
 {
     return Results.Ok(ctx.Tarefas.ToList().Where(s => s.Status == "Concluída"));

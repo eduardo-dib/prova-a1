@@ -6,14 +6,14 @@ POST http://localhost:5000/tarefas/cadastrar
 Content-Type: application/json
 
 {
-    "titulo": "Me aproximar do meu papagaio",
-    "descricao": "Me aproximar do meu papagaio",
+    "titulo": "Me aproximar da minha tartaruga",
+    "descricao": "Me aproximar da minha tartaruga",
     "categoriaId": "b9cf9b2b-bd80-4dfc-ac74-fd8a222c68ed"
 }
 
 
 ###Alterar uma nova tarefa
-PUT http://localhost:5000/tarefas/alterar/f4262fc4-204b-4166-aba5-b79deb41a899
+PUT http://localhost:5000/tarefas/alterar/5c3eefb3-b3d7-4a9b-9f37-78039c88c801
 
 
 ###Listar tarefas não concluidas

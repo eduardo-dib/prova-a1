@@ -24,6 +24,7 @@ function TarefaListar() {
   return (
     <div>
       <h1>Listar Tarefas</h1>
+      <h3>Caso queira concluir uma tarefa, entre na lista de tarefas não concluídas</h3>
       <table>
         <thead>
           <tr>
@@ -41,9 +42,6 @@ function TarefaListar() {
               <td>{Tarefa.descricao}</td>
               <td>{Tarefa.criadoEm}</td>
               <td>{Tarefa.status}</td>
-              <td>
-                <Link to={`/Tarefa/alterar/${Tarefa.id}`}>Alterar</Link>
-              </td>
             </tr>
           ))}
         </tbody>

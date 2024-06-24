@@ -1,29 +1,39 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Tarefa } from "../Models/Tarefa";
-import { Link } from "react-router-dom";
 
-function TarefaListar() {
+function TarefaListarNaoConcluidas() {
   const [tarefas, setTarefas] = useState<Tarefa[]>([]);
+  const [id, setId] = useState("");
 
   useEffect(() => {
     carregarTarefas();
+    alterarTarefa("aa46781b-3af5-4cd6-94fd-f4c2b3239d4c");
   }, []);
 
   function carregarTarefas() {
-    axios.get("http://localhost:5000/tarefas/listar")
+    axios.get("http://localhost:5000/tarefas/naoconcluidas")
       .then((response) => {
         setTarefas(response.data);
-        console.table(response.data);
       })
       .catch((error) => {
-        console.log("Erro ao carregar Tarefas de pagamento", error);
+        console.log("Erro ao carregar tarefas", error);
+      });
+  }
+
+  function alterarTarefa(id: string) {
+    axios.put(`http://localhost:5000/tarefas/alterar/${id}`, tarefas)
+      .then(() => {
+        console.log("Tarefa alterada");
+      })
+      .catch((error) => {
+        console.log("Erro ao alterar Tarefa", error);
       });
   }
 
   return (
     <div>
-      <h1>Listar Tarefas</h1>
+      <h1>Listar Tarefas não concluídas</h1>
       <table>
         <thead>
           <tr>
@@ -42,7 +52,7 @@ function TarefaListar() {
               <td>{Tarefa.criadoEm}</td>
               <td>{Tarefa.status}</td>
               <td>
-                <Link to={`/Tarefa/alterar/${Tarefa.id}`}>Alterar</Link>
+                <button onClick={() => Tarefa.id && alterarTarefa(Tarefa.id)}>Alterar</button>
               </td>
             </tr>
           ))}
@@ -52,4 +62,4 @@ function TarefaListar() {
   );
 }
 
-export default TarefaListar;
+export default TarefaListarNaoConcluidas;

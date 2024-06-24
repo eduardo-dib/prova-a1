@@ -1,6 +1,10 @@
 import React from "react";
 import TarefaListar from "./components/tarefa-listar";
+import TarefaListarNaoConcluidas from "./components/tarefa-listarnaoconcluidas";
+import TarefaListarConcluidas from "./components/tarefa-listarconcluidas";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import TarefaCadastrar from "./components/tarefa-cadastrar";
+import TarefaAlterar from "./components/tarefa-alterar";
 
 
 
@@ -14,31 +18,35 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/funcionario/listar">Listar pacientes</Link>
+              <Link to="/pages/tarefas/listarnaoconcluidas">Listar tarefas não concluídas</Link>
             </li>
             <li>
-              <Link to="/funcionario/cadastrar">Cadastrar pacientes</Link>
+              <Link to="/pages/tarefas/listarconcluidas">Listar tarefas concluídas</Link>
             </li>
             <li>
-              <Link to ="/funcionario/cadastrar">Listar consultas</Link>
+              <Link to ="/pages/tarefas/cadastrar">Cadastrar uma tarefa</Link>
             </li>
             <li>
-              <Link to ="/folha/listar">Listar folhas</Link>
+              <Link to ="/pages/tarefas/alterar">Alterar uma tarefa</Link>
             </li>
-            <li>
-            <Link to ="/folha/cadastrar">Cadastrar folhas</Link>
-            </li>
+            
+
 
 
           </ul>
         </nav>
         <Routes>
         <Route path="/" element={<TarefaListar/>} />
+        <Route path="/pages/tarefas/listarnaoconcluidas" element={<TarefaListarNaoConcluidas/>} />
+        <Route path="/pages/tarefas/listarconcluidas" element={<TarefaListarConcluidas/>} />
+        <Route path="/pages/tarefas/cadastrar" element={<TarefaCadastrar/>} />
+        <Route path="/pages/tarefas/alterar" element={<TarefaAlterar/>} />
+        
 
-
+        
         </Routes>
         <footer>
-          <p>Sistema de Gestão Hospitalar</p>
+          <p>Gestão de Tarefas</p>
         </footer>
       </BrowserRouter>
     </div>
