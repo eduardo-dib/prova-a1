@@ -50,7 +50,36 @@ function TarefaAlterar() {
             />{" "}
             <button type="submit">Alterar</button>
           </form>
+
+          <div>
+      <h2>Lista de tarefas não concluídas</h2>
+      <h3></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Criado em:</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tarefas.map((Tarefa) => (
+            <tr key={Tarefa.id}>
+              <td>{Tarefa.tarefaId}</td>
+              <td>{Tarefa.titulo}</td>
+              <td>{Tarefa.descricao}</td>
+              <td>{Tarefa.criadoEm}</td>
+              <td>{Tarefa.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
         </div>
+
+        
       );
   }
 
