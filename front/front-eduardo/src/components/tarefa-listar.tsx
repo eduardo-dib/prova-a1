@@ -24,20 +24,21 @@ function TarefaListar() {
   return (
     <div>
       <h1>Listar Tarefas</h1>
-      <h3>Caso queira concluir uma tarefa, entre na lista de tarefas não concluídas</h3>
+      <h3>Caso queira concluir uma tarefa, entre no link de alterar tarefa</h3>
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Título</th>
             <th>Descrição</th>
             <th>Criado em:</th>
             <th>Status</th>
-            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {tarefas.map((Tarefa) => (
             <tr key={Tarefa.id}>
+              <td>{Tarefa.tarefaId}</td>
               <td>{Tarefa.titulo}</td>
               <td>{Tarefa.descricao}</td>
               <td>{Tarefa.criadoEm}</td>

@@ -6,6 +6,24 @@ import { Tarefa } from "../Models/Tarefa";
 
 function TarefaAlterar() {
     const [id, setId] = useState("");
+
+    const [tarefas, setTarefas] = useState<Tarefa[]>([]);
+
+    useEffect(() => {
+      carregarTarefas();
+    }, []);
+  
+    function carregarTarefas() {
+      axios.get("http://localhost:5000/tarefas/naoconcluidas")
+        .then((response) => {
+          setTarefas(response.data);
+          console.table(response.data);
+        })
+        .catch((error) => {
+          console.log("Erro ao carregar Tarefas", error);
+        });
+    }
+  
   
 
     function alterarTarefa(){
@@ -21,9 +39,7 @@ function TarefaAlterar() {
     return (
         <div>
           <h1>Alterar Tarefa</h1>
-          <li>
-          <Link to="/pages/tarefas/listar">Listar tarefas </Link>
-          </li>
+          
           <form onSubmit={alterarTarefa}>
             <label>Digite o id da tarefa que gostaria de alterar</label>
             <input

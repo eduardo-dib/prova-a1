@@ -24,7 +24,7 @@ function TarefaListarNaoConcluidas() {
   function alterarTarefa(id: string) {
     axios.put(`http://localhost:5000/tarefas/alterar/${id}`, tarefas)
       .then(() => {
-        console.log("Tarefa alterada");
+        <h1>Tarefa alterada com sucesso</h1>
       })
       .catch((error) => {
         console.log("Erro ao alterar Tarefa", error);
@@ -41,7 +41,6 @@ function TarefaListarNaoConcluidas() {
             <th>Descrição</th>
             <th>Criado em:</th>
             <th>Status</th>
-            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -51,9 +50,6 @@ function TarefaListarNaoConcluidas() {
               <td>{Tarefa.descricao}</td>
               <td>{Tarefa.criadoEm}</td>
               <td>{Tarefa.status}</td>
-              <td>
-                <button onClick={() => Tarefa.id && alterarTarefa(Tarefa.id)}>Alterar</button>
-              </td>
             </tr>
           ))}
         </tbody>
